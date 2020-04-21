@@ -24,7 +24,7 @@ app.get('/', (req,res) => {
 
 app.post('/create', create.handleCreate());
 
-app.get('/read', read.handleRead());
+app.get('/read', read.handleRead(db));
 
 app.put('/update/ac', update.updateAcStatus());
 app.put('/update/geyser', update.updateGeyserStatus());
