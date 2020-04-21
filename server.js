@@ -22,15 +22,15 @@ app.get('/', (req,res) => {
     res.json('Welcome to Mounty');
 })
 
-app.post('/create', create.handleCreate());
+app.post('/create', create.handleCreate(db));
 
 app.get('/read', read.handleRead(db));
 
-app.put('/update/ac', update.updateAcStatus());
-app.put('/update/geyser', update.updateGeyserStatus());
-app.put('/update/wifi', update.updateWifiStatus());
-app.put('/update/breakfast', update.updateBreakfastStatus());
+app.put('/update/ac', update.updateAcStatus(db));
+app.put('/update/geyser', update.updateGeyserStatus(db));
+app.put('/update/wifi', update.updateWifiStatus(db));
+app.put('/update/breakfast', update.updateBreakfastStatus(db));
 
-app.delete('/deleteRoute', deleteRoute.deleteRoom());
+app.delete('/deleteRoute', deleteRoute.deleteRoom(db));
 
 app.listen(3000);
