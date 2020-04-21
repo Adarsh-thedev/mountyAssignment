@@ -23,7 +23,31 @@ const updateGeyserStatus = () => (req,res) => {
     }
 }
 
+const updateWifiStatus = () => (req,res) => {
+    const {wifi} = req.body;
+    if(wifi === true) {
+        return res.json('wifi installed');
+    } else if(wifi === false) {
+        return res.json('Removed wifi');
+    } else {
+        return res.status(400).json('Not Updated');
+    } 
+}
+
+const updateBreakfastStatus = () => (req,res) => {
+    const {breakfast} = req.body;
+    if(breakfast === true) {
+        return res.json('Breakfast added');
+    } else if(breakfast === false) {
+        return res.json('Breakfast no mre available in this room');
+    } else {
+        return res.status(400).json('Not Updated');
+    } 
+}
+
 module.exports = {
     updateAcStatus,
-    updateGeyserStatus
+    updateGeyserStatus,
+    updateWifiStatus,
+    updateBreakfastStatus
 }
